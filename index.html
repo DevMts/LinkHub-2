@@ -143,6 +143,7 @@
                 .then((response) => {
                     console.log("Mensagem enviada com sucesso:", response);
                     alert("Mensagem enviada com sucesso!");
+                    window.location.href = "assets/pages/posemail.html"
                 })
                 .catch((error) => {
                     console.error("Erro ao enviar email:", error);
