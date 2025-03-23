@@ -12,8 +12,14 @@
 
 </head>
 
-<body class="bg-zinc-900">
-    <section class="relative grid grid-cols-2 max-h-[213px] grid-rows-5 pt-12 gap-y-1 ">
+<body class="bg-zinc-900 relative h-screen overflow-hidden">
+    <div id="loader" class="absolute h-screen w-screen bg-zinc-900 z-50 overflow-hidden">
+        <div id="code-loader" class="text-white font-mono font-bold text-[100px] opacity-80 flex items-center justify-center h-full">
+            <span class="inline-block animate-pulse">{</span>
+            <span class="inline-block animate-pulse delay-800">}</span>
+          </div>
+    </div>
+    <section class="relative grid grid-cols-2 max-h-[213px] grid-rows-5 pt-12 gap-y-1 -z-10">
         <div
             class=" absolute top-0 bg-[url(/assets/img/back.jpg)] bg-cover bg-center -z-10 h-[220px] w-[100%] opacity-15 grid grid-cols-2">
         </div>
@@ -48,8 +54,7 @@
         </article>
         <article class="w-full mx-auto flex flex-col justify-center items-center gap-4">
             <h2 class="font-roboto font-bold text-center text-2xl text-gray-600 tracking-[2.4px]"> MY LINKS</h2>
-            <div
-                class=" group w-[85%] mx-auto bg-zinc-800 p-3 rounded-2xl hover:bg-zinc-700 transition-colors bf26ed0">
+            <div class=" group w-[85%] mx-auto bg-zinc-800 p-3 rounded-2xl hover:bg-zinc-700 transition-colors bf26ed0">
                 <a href="https://www.instagram.com/mts.rlx7/" target="_blank"
                     class=" w-full flex justify-between items-center gap-4 hover:">
                     <i class="fa-brands fa-instagram text-5xl text-violet-500"></i>
@@ -61,8 +66,7 @@
                         class="fa-solid fa-arrow-up-from-bracket text-slate-400 text-xl mr-2 group-hover:mb-4 transition-all duration-200"></i>
                 </a>
             </div>
-            <div
-                class=" group w-[85%] mx-auto bg-zinc-800 p-3 rounded-2xl hover:bg-zinc-700 transition-colors bf26ed0">
+            <div class=" group w-[85%] mx-auto bg-zinc-800 p-3 rounded-2xl hover:bg-zinc-700 transition-colors bf26ed0">
                 <a href="https://www.linkedin.com/in/mateuscarvalhopedro/" target="_blank"
                     class=" w-full flex justify-between items-center gap-4 hover:">
                     <i class="fa-brands fa-linkedin text-5xl text-violet-500"></i>
@@ -77,8 +81,7 @@
             <iframe style="border-radius:12px"
                 src="https://open.spotify.com/embed/playlist/5Am8CmtW0Qxt0KY3vBe8wu?utm_source=generator" width="85%"
                 height="100" frameBorder="0" allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                class="bf26ed0">
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" class="bf26ed0">
             </iframe>
 
             <a href="https://devmtsportifolio.vercel.app/" target="_blank"
@@ -121,6 +124,12 @@
     </section>
 
     <script>
+        onload = function () {
+            document.getElementById('loader').classList.add('hidden')
+            document.querySelector('body').classList.remove('h-screen')
+            document.querySelector('body').classList.remove('overflow-hidden')
+        }
+
         emailjs.init("8LobP2lQyowuVsw3i");
 
         function sendEmail() {
@@ -150,6 +159,7 @@
                     alert("Erro ao enviar mensagem. Tente novamente.");
                 });
         }
+
 
 
     </script>
